@@ -1,0 +1,90 @@
+{% extends "index.html" %}
+
+
+{%block content %}
+
+<div class="row">
+
+    <div class="column" id="imagesCol">
+        <div class="images" id="input_images">
+            <div class="imagediv1" class="input-group mb-3">
+                <div id="imageA"></div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="imageA_input" accept="image/*" required="required">
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="column" id="controlCol">
+
+
+        <label for="operation" style="
+        font-size: 17px;
+        height: fit-content;
+        text-align: center; 
+        font-style: italic;  font-weight: bold;">Operation:</label>
+        <select id="operation">
+            <option value="">Select an operation</option>
+            <option value="spt">Spectral Thresholding</option>
+            <option value="rtl">RGB To LUV</option>
+            <option value="mss_bandwidth">Mean Shift Segmentation</option>
+            <option value="optimal_threshold">Optimal Threshold</option>
+            <option value="otsu_threshold">Otsu Threshold</option>
+            <option value="k_means">K Means</option>
+
+
+        </select>
+
+        <label for="sub-operation" style="
+font-size: 17px;
+height: fit-content;
+text-align: center; 
+font-style: italic;  font-weight: bold;">Sub-operation:</label>
+        <select id="sub-operation">
+            <option value="">Select a sub-operation</option>
+
+            <optgroup label="MSS_Bandwidth">
+                <option value=10> 20</option>
+                <option value=20> 30</option>
+                <option value=30> 40</option>
+                <option value=50> 50</option>
+            </optgroup>
+
+        </select>
+
+
+        <div id="controll_container">
+            <button id="submit_btn" class="btn btn-outline-dark">Result</button>
+        </div>
+
+
+    </div>
+
+
+    <div class="column" id="imagesCol">
+        <div class="images">
+            <div class="imagediv3" id="imagediv3">
+                <div id="imageC"></div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script src="{{ url_for('static', filename='js/processing.js') }}"></script>
+
+{% endblock %}
